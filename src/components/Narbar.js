@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import toast from 'react-hot-toast';
 const Narbar=()=>{
-    const [isUi,setIsUi]=useState(false);
+    const [isUi,setIsUi]=useState(true);
     const loggedinLink=document.querySelectorAll('.logged-in');
     const loggedoutLink=document.querySelectorAll('.logged-out');
    
