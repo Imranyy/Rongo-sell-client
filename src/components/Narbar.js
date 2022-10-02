@@ -5,13 +5,7 @@ const Narbar=()=>{
     const [isUi,setIsUi]=useState(false);
     const loggedinLink=document.querySelectorAll('.logged-in');
     const loggedoutLink=document.querySelectorAll('.logged-out');
-    if(isUi){
-      loggedinLink.forEach(item=>item.style.display='block');
-      loggedoutLink.forEach(item=>item.style.display='none');
-    }else{
-      loggedinLink.forEach(item=>item.style.display='none');
-      loggedoutLink.forEach(item=>item.style.display='block');
-    }
+   
     //setupUI for logged in and logged out admins
   async function checkUI(){
     try {
@@ -24,11 +18,17 @@ const Narbar=()=>{
       })
       const parseRes= await response.json();
       parseRes===true ? setIsUi(true): setIsUi(false);
-      parseRes===false ? setIsUi(false): setIsUi(true);
     } catch (err) { 
-      err===false?setIsUi(false):setIsUi(false) ;
+      setIsUi(false) ;
       console.log(err.message);
     }
+  }
+  if(isUi){
+    loggedinLink.forEach(item=>item.style.display='block');
+    loggedoutLink.forEach(item=>item.style.display='none');
+  }else{
+    loggedinLink.forEach(item=>item.style.display='none');
+    loggedoutLink.forEach(item=>item.style.display='block');
   }
   
   const loggOut=()=>{
