@@ -49,7 +49,7 @@ const Home=()=>{
                         </Link>
                     </div>
                 </div>
-                )):'😥 No Items Left'}
+                )):(<div className="container" style={{color:'GrayText',marginTop:'30px',fontStyle:'oblique'}}><h4>Opps!..No Item Found, You might be Offline</h4></div>)}
             </div>
             <Footer/>
         </>

@@ -17,7 +17,7 @@ const Narbar=()=>{
         }
       })
       const parseRes= await response.json();
-      parseRes===true ? setIsUi(true): setIsUi(false)
+      parseRes===true ? setIsUi(true): setIsUi(false);
     } catch (err) { 
       setIsUi(false);
       console.log(err.message);

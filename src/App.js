@@ -29,7 +29,7 @@ function App() {
   }
   useEffect(()=>{
     checkUI();
-  })
+  },[])
   return (
   <Router> 
    <Narbar/>

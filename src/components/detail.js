@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 const Detail=()=>{
-    const [item,setItem]=useState('')
+    const [item,setItem]=useState('');
+    const navigate=useNavigate();
     const {id}=useParams();
     const getOneItem=async()=>{
         try {
@@ -14,6 +15,7 @@ const Detail=()=>{
             setItem(parseRes);
             preloaderoff();
         } catch (error) {
+            navigate('/');
             preloaderoff();
             console.log(error.message)
         }
