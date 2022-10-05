@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import toast from 'react-hot-toast';
 const Narbar=()=>{
@@ -7,6 +7,26 @@ const Narbar=()=>{
     const loggedoutLink=document.querySelectorAll('.logged-out');
    
     //setupUI for logged in and logged out admins
+    useEffect(()=>{
+      const fetchUi=async()=>{
+        try {
+          const url='https://tinypesa-biz-api.onrender.com/api/verify'
+          const response=await fetch(url,{
+            method:'GET',
+            headers:{
+              authorization:`Bearer ${localStorage.getItem('token')}`
+            }
+          })
+          const parseRes= await response.json();
+          parseRes===true ? setIsUi(true): setIsUi(false);
+        } catch (err) { 
+          console.log(err.message);
+          setIsUi(false);
+        }
+      }
+      fetchUi();
+    },[])
+
   async function checkUI(){
     try {
       const url='https://tinypesa-biz-api.onrender.com/api/verify'
@@ -19,8 +39,8 @@ const Narbar=()=>{
       const parseRes= await response.json();
       parseRes===true ? setIsUi(true): setIsUi(false);
     } catch (err) { 
-      setIsUi(false) ;
       console.log(err.message);
+      setIsUi(false);
     }
   }
   if(isUi){

@@ -37,7 +37,7 @@ const Home=()=>{
             <div className="landing">
                 {items?items.map(item=>(
                     <div key={item._id} className="land card" style={{width: '18rem'}}>
-                    <img src={item.image} className="card-img-top" alt="..."/>
+                    <img src={item.image} className="card-img-top" alt="..." height='250' width='250'/>
                     <div className="card-body">
                         <h5 className="card-title">{item.title.toUpperCase()}</h5>
                         <p className="card-text" style={{color:'GrayText',fontStyle:'oblique'}}>{item.detail.substr(0,20)} ...</p>
