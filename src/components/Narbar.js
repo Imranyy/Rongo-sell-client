@@ -1,15 +1,32 @@
-import react,{Component } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import toast from 'react-hot-toast';
-import {AuthContext} from '../contexts/AuthContext';
-class Narbar extends Component{
-  static contextType= AuthContext;
-  render(){
-    const {isLoggedIn, toggleLoggedIn}= this.context;
+const Narbar=()=>{
+    const [isUi,setIsUi]=useState(true);
     const loggedinLink=document.querySelectorAll('.logged-in');
     const loggedoutLink=document.querySelectorAll('.logged-out');
    
-    
+    //setupUI for logged in and logged out admins
+    useEffect(()=>{
+      const fetchUi=async()=>{
+        try {
+          const url='https://tinypesa-biz-api.onrender.com/api/verify'
+          const response=await fetch(url,{
+            method:'GET',
+            headers:{
+              authorization:`Bearer ${localStorage.getItem('token')}`
+            }
+          })
+          const parseRes= await response.json();
+          parseRes===true ? setIsUi(true): setIsUi(false);
+        } catch (err) { 
+          console.log(err.message);
+          toast.error('You are logged out...');
+          setIsUi(false);
+        }
+      }
+      fetchUi();
+    },[])
 
   async function checkUI(){
     try {
@@ -21,13 +38,13 @@ class Narbar extends Component{
         }
       })
       const parseRes= await response.json();
-      parseRes===true ? isLoggedIn: toggleLoggedIn;
+      parseRes===true ? setIsUi(true): setIsUi(false);
     } catch (err) { 
       console.log(err.message);
-      toggleLoggedIn;
+      setIsUi(false);
     }
   }
-  if(isLoggedIn){
+  if(isUi){
     loggedinLink.forEach(item=>item.style.display='block');
     loggedoutLink.forEach(item=>item.style.display='none');
   }else{
@@ -36,8 +53,8 @@ class Narbar extends Component{
   }
   
   const loggOut=()=>{
-    toast.success('sign out successful');
-    toggleLoggedIn;
+    toast.success('sign out successful')
+    setIsUi(false);
     localStorage.clear();
   };
     return(
@@ -73,6 +90,5 @@ class Narbar extends Component{
         </nav>
         </>
     )
-  }
 }
 export default Narbar;
