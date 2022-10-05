@@ -9,10 +9,12 @@ import SignIn from './components/SignIn';
 import Sell from './components/Sell';
 import Orders from './components/Orders';
 import Dashboard from './components/Dashboard';
+import AuthContextProvider from './contexts/AuthContext';
 
 function App() {
   return (
   <Router> 
+   <AuthContextProvider>
    <Narbar/>
       <Routes>
        <Route path='/' element={<Home/>}/>
@@ -23,7 +25,8 @@ function App() {
        <Route path='/orders/:id' element={<Orders/>}/>
        <Route path='*' element={<NotFound/>}/>
       </Routes>
-      <Toaster/>
+   </AuthContextProvider>
+  <Toaster/>
    </Router>
   
   );

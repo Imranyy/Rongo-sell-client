@@ -1,32 +1,15 @@
-import { useEffect, useState } from "react";
+import react,{Component } from "react";
 import { Link } from "react-router-dom";
 import toast from 'react-hot-toast';
-const Narbar=()=>{
-    const [isUi,setIsUi]=useState(true);
+import {AuthContext} from '../contexts/AuthContext';
+class Narbar extends Component{
+  static contextType= AuthContext;
+  render(){
+    const {isLoggedIn, toggleLoggedIn}= this.context;
     const loggedinLink=document.querySelectorAll('.logged-in');
     const loggedoutLink=document.querySelectorAll('.logged-out');
    
-    //setupUI for logged in and logged out admins
-    useEffect(()=>{
-      const fetchUi=async()=>{
-        try {
-          const url='https://tinypesa-biz-api.onrender.com/api/verify'
-          const response=await fetch(url,{
-            method:'GET',
-            headers:{
-              authorization:`Bearer ${localStorage.getItem('token')}`
-            }
-          })
-          const parseRes= await response.json();
-          parseRes===true ? setIsUi(true): setIsUi(false);
-        } catch (err) { 
-          console.log(err.message);
-          toast.error('You are logged out...');
-          setIsUi(false);
-        }
-      }
-      fetchUi();
-    },[])
+    
 
   async function checkUI(){
     try {
@@ -38,13 +21,13 @@ const Narbar=()=>{
         }
       })
       const parseRes= await response.json();
-      parseRes===true ? setIsUi(true): setIsUi(false);
+      parseRes===true ? isLoggedIn: toggleLoggedIn;
     } catch (err) { 
       console.log(err.message);
-      setIsUi(false);
+      toggleLoggedIn;
     }
   }
-  if(isUi){
+  if(isLoggedIn){
     loggedinLink.forEach(item=>item.style.display='block');
     loggedoutLink.forEach(item=>item.style.display='none');
   }else{
@@ -53,8 +36,8 @@ const Narbar=()=>{
   }
   
   const loggOut=()=>{
-    toast.success('sign out successful')
-    setIsUi(false);
+    toast.success('sign out successful');
+    toggleLoggedIn;
     localStorage.clear();
   };
     return(
@@ -90,5 +73,6 @@ const Narbar=()=>{
         </nav>
         </>
     )
+  }
 }
 export default Narbar;
