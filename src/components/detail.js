@@ -37,9 +37,9 @@ const Detail=()=>{
         <div className='preload'></div>
             <div className="viewItem">
                 <div className="land card" key={item._id} >
-                    <img className='card-img-top' src={item.image} alt="..."/>
+                    <img className='card-img-top' src={item.image} alt="..." height='250' width='250'/>
                 <div className='card-body'>
-                <div className="card-text">
+                <div className="card-text" style={{fontSize:'90%'}}>
                     <h4 style={{fontStyle:'oblique'}}>{item.title}</h4>
                     <p style={{fontStyle:'oblique'}}>{item.detail}</p> 
                     <small>Selling @: Ksh{item.amount}</small><br/>
