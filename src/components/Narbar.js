@@ -21,6 +21,7 @@ const Narbar=()=>{
           parseRes===true ? setIsUi(true): setIsUi(false);
         } catch (err) { 
           console.log(err.message);
+          toast.error('You are logged out...');
           setIsUi(false);
         }
       }
