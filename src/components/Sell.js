@@ -46,7 +46,7 @@ function Sell(){
     const addItem=async(e)=>{
         e.preventDefault();
         const validNumber=(userNumber)=>{
-            return /^[0]\d{2}\d{3}\d{4}/.test(userNumber);
+            return /^[0]\d{2}\d{3}\d{4}$/.test(userNumber);
         }
         let phoneNumber=validNumber(phone)
         if(phoneNumber){

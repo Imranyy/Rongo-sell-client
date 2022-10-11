@@ -165,8 +165,8 @@ function SignIn(){
                     <input type="password" className="form-control" name="number" id="exampleFormControlInput1" onChange={(e)=>{setPassword(e.target.value)}} placeholder="password" required/>
                 </div>
                     <div className="submitError">
-                    <button className="btn btn-light" style={{fontSize:'80%'}}>submit ✔</button>
                     {backToStore}
+                    <button className="btn btn-light" style={{fontSize:'80%'}}>submit ✔</button>
                     </div>
             </div>
            </form>
