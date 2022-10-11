@@ -75,7 +75,7 @@ const Narbar=()=>{
                     <Link className="nav-link active" to='/' style={{color:'whitesmoke',fontFamily:"monospace",borderBottom:'solid 1px grey'}} aria-current="page"><div data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">🛒 Store</div></Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link active logged-out" to='/signin' style={{color:'whitesmoke',fontFamily:"monospace",borderBottom:'solid 1px grey',display:'none'}} aria-current="page"><div data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">👌 Sign in</div></Link>
+                    <Link className="nav-link active logged-out" to='/signin' style={{color:'whitesmoke',fontFamily:"monospace",borderBottom:'solid 1px grey'}} aria-current="page"><div data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">👌 Sign in</div></Link>
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link active logged-in" to='/sell' style={{color:'whitesmoke',fontFamily:"monospace",borderBottom:'solid 1px grey',display:'none'}} aria-current="page"><div data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">🤑 Sell</div></Link>
