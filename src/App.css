@@ -74,7 +74,7 @@ body{
   height: 50px;
   width: 105px;
 }
-.card{
+.card1{
   width:18rem;
 }
 .preload{
@@ -125,7 +125,7 @@ body{
       max-width: 90%;
       grid-template-columns: repeat(2,1fr);
   }
-  .card{
+  .card1{
     width: 15rem;
   }
   
@@ -140,7 +140,7 @@ body{
       max-width: 90%;
       grid-template-columns: repeat(2,1fr);
   }
-  .card{
+  .card1{
     width: 13rem;
   }
   
@@ -155,7 +155,7 @@ body{
       max-width: 90%;
       grid-template-columns: repeat(1,1fr);
   }
-  .card{
+  .card1{
     width: 23rem;
   }
   
@@ -170,7 +170,7 @@ body{
       max-width: 90%;
       grid-template-columns: repeat(1,1fr);
   }
-  .card{
+  .card1{
     width: 19rem;
   }
   

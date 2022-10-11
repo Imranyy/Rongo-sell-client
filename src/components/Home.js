@@ -39,7 +39,7 @@ const Home=()=>{
         <div className='preload'></div>
             <div className="landing">
                 {items?items.map(item=>(
-                    <div key={item._id} className="land card" style={{}}>
+                    <div key={item._id} className="land card1 card">
                     <img src={item.image} className="card-img-top" alt="..." height='250' width='250'/>
                     <div className="card-body">
                         <h5 className="card-title">{item.title.toUpperCase()}</h5>
