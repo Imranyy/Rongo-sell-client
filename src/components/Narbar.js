@@ -20,9 +20,9 @@ const Narbar=()=>{
           const parseRes= await response.json();
           parseRes===true ? setIsUi(true): setIsUi(false);
         } catch (err) { 
+          err ? setIsUi(false):setIsUi(false);
           console.log(err.message);
           toast.error('You are logged out...');
-          setIsUi(false);
         }
       }
       fetchUi();

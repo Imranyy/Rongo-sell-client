@@ -1,7 +1,7 @@
 import React from 'react';
 function Footer() {
     return (
-        <div style={{display:'flex',alignItem:'center',justifyContent:'center'}}>
+        <div style={{marginLeft:'125px',bottom:'8px'}}>
             <button className="btn btn-outline-info" style={{margin:'10% auto'}} type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">🕵️‍♀️More Info</button>
                 <div className="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel" style={{height:'40%'}}>
                 <div className="offcanvas-header">
