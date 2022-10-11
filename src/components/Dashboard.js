@@ -49,7 +49,7 @@ function Dashboard() {
 
             <div className="landing">
                 {items?items.map(item=>(
-                    <div key={item._id} className="land card" style={{width: '18rem'}}>
+                    <div key={item._id} className="land card card1">
                     <img src={item.image} className="card-img-top" alt="..."/>
                     <div className="card-body">
                         <h5 className="card-title">{item.title.toUpperCase()}</h5>
