@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import toast from 'react-hot-toast';
 const Narbar=()=>{
-    const [isUi,setIsUi]=useState(true);
+    const [isAuth,setIsAuth]=useState(false);
     const loggedinLink=document.querySelectorAll('.logged-in');
     const loggedoutLink=document.querySelectorAll('.logged-out');
    
@@ -18,9 +18,9 @@ const Narbar=()=>{
             }
           })
           const parseRes= await response.json();
-          parseRes===true ? setIsUi(true): setIsUi(false);
+          parseRes===true ? setIsAuth(true): setIsAuth(false);
         } catch (err) { 
-          err ? setIsUi(false):setIsUi(false);
+          setIsAuth(false);
           console.log(err.message);
           toast.error('You are logged out...');
         }
@@ -38,13 +38,13 @@ const Narbar=()=>{
         }
       })
       const parseRes= await response.json();
-      parseRes===true ? setIsUi(true): setIsUi(false);
+      parseRes===true ? setIsAuth(true): setIsAuth(false);
     } catch (err) { 
       console.log(err.message);
-      setIsUi(false);
+      setIsAuth(false);
     }
   }
-  if(isUi){
+  if(isAuth){
     loggedinLink.forEach(item=>item.style.display='block');
     loggedoutLink.forEach(item=>item.style.display='none');
   }else{
@@ -54,7 +54,7 @@ const Narbar=()=>{
   
   const loggOut=()=>{
     toast.success('sign out successful')
-    setIsUi(false);
+    setIsAuth(false);
     localStorage.clear();
   };
     return(
@@ -75,7 +75,7 @@ const Narbar=()=>{
                     <Link className="nav-link active" to='/' style={{color:'whitesmoke',fontFamily:"monospace",borderBottom:'solid 1px grey'}} aria-current="page"><div data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">🛒 Store</div></Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link active logged-out" to='/signin' style={{color:'whitesmoke',fontFamily:"monospace",borderBottom:'solid 1px grey'}} aria-current="page"><div data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">👌 Sign in</div></Link>
+                    <Link className="nav-link active logged-out" to='/signin' style={{color:'whitesmoke',fontFamily:"monospace",borderBottom:'solid 1px grey',display:'none'}} aria-current="page"><div data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">👌 Sign in</div></Link>
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link active logged-in" to='/sell' style={{color:'whitesmoke',fontFamily:"monospace",borderBottom:'solid 1px grey',display:'none'}} aria-current="page"><div data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">🤑 Sell</div></Link>
