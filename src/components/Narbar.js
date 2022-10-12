@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import toast from 'react-hot-toast';
 const Narbar=()=>{
-    const [isAuth,setIsAuth]=useState(false);
+    const [isAuth,setIsAuth]=useState(true);
     const loggedinLink=document.querySelectorAll('.logged-in');
     const loggedoutLink=document.querySelectorAll('.logged-out');
    
